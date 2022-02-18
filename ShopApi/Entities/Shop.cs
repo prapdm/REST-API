@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopApi.Entities
 {
@@ -15,11 +12,14 @@ namespace ShopApi.Entities
         public string ContactEmail { get; set; }
         public string Phone { get; set; }
         public string Website { get; set; }
-        public int? CreatedBy { get; set; }
-        public virtual User User { get; set; }
+        public string Category { get; set; }
+        public int? CreatedById { get; set; }
+        public virtual User CreatedBy { get; set; }
         public int AddressId { get; set; }
 
         public virtual Address Address { get; set; }
         public virtual List<Product> Product { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

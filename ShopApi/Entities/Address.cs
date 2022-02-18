@@ -1,4 +1,6 @@
-﻿namespace ShopApi.Entities
+﻿using System;
+
+namespace ShopApi.Entities
 {
     public class Address
     {
@@ -8,5 +10,7 @@
         public string PostalCode { get; set; }
 
         public virtual Shop Shop { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }
