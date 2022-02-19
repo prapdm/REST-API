@@ -1,5 +1,5 @@
 ﻿# Shop API
-> Exemple of REST API with ASP.NET Core 5 (C#) with Entity Framework
+> Example of REST API with ASP.NET Core 5 (C#) with Entity Framework
 > 
 > ```
 >Login: user@manager.pl
@@ -39,7 +39,7 @@ TODO
 - Register, activate user
 - JWT Bearer Token authentication
 - Role autorization and custom autorization support
-- Entity Framework with exemple data 
+- Entity Framework with example data 
 - Loging errors and exeptions to file
 - Loging request longer than 5s
 - Results pagination
