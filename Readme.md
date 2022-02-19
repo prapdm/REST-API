@@ -44,6 +44,7 @@ TODO
 - Loging request longer than 5s
 - Results pagination
 - Files upload support
+- XML/JSON output support
 - Custom validators with FluentValidation
 - Roles: Admin, Manager, User
 - Search users, services, categories 
@@ -51,7 +52,7 @@ TODO
 
 
 ## Database relationshop diagram
-[https://dbdiagram.io/d/620e1b5d485e433543cb93ff]("https://dbdiagram.io/d/620e1b5d485e433543cb93ff")
+[https://dbdiagram.io/d/620e1b5d485e433543cb93ff](https://dbdiagram.io/d/620e1b5d485e433543cb93ff)
 
 
  
