@@ -2,9 +2,12 @@
 > Example of REST API with ASP.NET Core 5 (C#) with Entity Framework
 > 
 > ```
->Login: user@manager.pl
+>Login: admin@manager.pl
 > Password: Password123
 > ```
+
+>Run in Docker: https://hub.docker.com/repository/docker/avenus/webapi
+
 
 
 
@@ -28,7 +31,8 @@
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 ## Postman documentation
-TODO
+
+https://documenter.getpostman.com/view/17808423/UVknubvY
 
 ## Technologies Used
 - ASP.NET Core 5
@@ -38,17 +42,18 @@ TODO
 ## Features
 - Register, activate user
 - JWT Bearer Token authentication
-- Role autorization and custom autorization support
+- Role autorization and custom policy autorization 
 - Entity Framework with example data 
 - Loging errors and exeptions to file
 - Loging request longer than 5s
-- Results pagination
+- Pagination
 - Files upload support
 - XML/JSON output support
 - Custom validators with FluentValidation
 - Roles: Admin, Manager, User
 - Search users, services, categories 
 - Sort tables
+- Swagger documentation
 
 
 ## Database relationshop diagram
@@ -73,7 +78,7 @@ Packeges used in the project:
 
 
 ## Project Status
-  _Developing_. Project is only for example and education purpose.
+Project is _finished_ and no longer being worked on.  Project is only for example and education purpose.
 
 
 
