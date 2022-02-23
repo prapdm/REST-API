@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "NetCoreManager",
+      "defaultValue": "ShopApi1",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }
