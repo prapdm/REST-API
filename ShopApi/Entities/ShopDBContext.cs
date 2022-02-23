@@ -49,6 +49,10 @@ namespace ShopApi.Entities
               .IsRequired();
 
             modelBuilder.Entity<User>()
+              .Property(u => u.Country)
+              .IsRequired();
+
+            modelBuilder.Entity<User>()
               .Property(u => u.CreatedAt)
               .HasDefaultValueSql("GETDATE()")
               .ValueGeneratedOnAdd()
@@ -95,6 +99,11 @@ namespace ShopApi.Entities
             .Property(p => p.Category)
             .HasMaxLength(200);
 
+            modelBuilder.Entity<Product>()
+            .Property(p => p.ImageUrl)
+            .HasMaxLength(200);
+
+            
             modelBuilder.Entity<Product>()
               .Property(p => p.CreatedAt)
               .HasDefaultValueSql("GETDATE()")
