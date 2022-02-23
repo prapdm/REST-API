@@ -86,8 +86,16 @@ namespace ShopApi.Services
                  new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                  new Claim(ClaimTypes.Name, $"{user.Name} {user.Surname}"),
                  new Claim(ClaimTypes.Role, $"{user.Role.Name}"),
+            
 
             };
+
+            if (!string.IsNullOrEmpty(user.Country))
+            {
+                claims.Add(
+                    new Claim("Country", user.Country)
+                    );
+            }
 
             if (!string.IsNullOrEmpty(user.Phone))
             {
