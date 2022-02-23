@@ -224,6 +224,7 @@ namespace ShopApi
                     Surname = "Admiński",
                     Email = "admin@manager.pl",
                     Phone = "654125456",
+                    Country = "Poland",
                     IsActive = true,
                     PasswordHash = "AQAAAAEAACcQAAAAEApugCGEqb6o7UxWAZkMa5nzUgVEJZCVheEEyofMZ7/AVucqyq1KjjqQ1/CReYjtcg==",
                     CreatedAt = DateTime.Now
@@ -239,6 +240,7 @@ namespace ShopApi
                     Surname = "Fajkowski",
                     Email = "manager@manager.pl",
                     Phone = "734242553",
+                    Country = "Poland",
                     IsActive = true,
                     PasswordHash = "AQAAAAEAACcQAAAAEApugCGEqb6o7UxWAZkMa5nzUgVEJZCVheEEyofMZ7/AVucqyq1KjjqQ1/CReYjtcg==",
                     CreatedAt = DateTime.Now
@@ -255,6 +257,7 @@ namespace ShopApi
                     Surname = "Wienkowski",
                     Email = "user@manager.pl",
                     Phone = "553334234",
+                    Country = "Poland",
                     IsActive = true,
                     PasswordHash = "AQAAAAEAACcQAAAAEApugCGEqb6o7UxWAZkMa5nzUgVEJZCVheEEyofMZ7/AVucqyq1KjjqQ1/CReYjtcg==",
                     CreatedAt = DateTime.Now
