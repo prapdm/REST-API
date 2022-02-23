@@ -10,6 +10,7 @@ namespace ShopApi.Entities
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string Country { get; set; }
         public bool IsActive { get; set; }
         public string PasswordHash { get; set; }
         public DateTime CreatedAt { get; set; }
