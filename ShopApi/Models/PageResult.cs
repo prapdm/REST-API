@@ -11,6 +11,10 @@ namespace ShopApi.Models
         public int ItemsTo { get; set; }
         public int TotalItemsCount { get; set; }
 
+        public PageResult()
+        {
+        }
+
         public PageResult(List<T> items, int totalCount, int pageSize, int pageNumber)
         {
             Items = items;
@@ -19,5 +23,7 @@ namespace ShopApi.Models
             ItemsTo = ItemFrom + pageSize - 1;
             Totalpages = (int)Math.Ceiling(totalCount / (double)pageSize);
         }
+
+  
     }
 }
