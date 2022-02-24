@@ -1,16 +1,16 @@
-name: Build and deploy .NET Core application to Web App ShopApi1 with API Management Service ShopApi1-ShopApi
+name: Build and deploy .NET Core application to Web App WebShopApi with API Management Service WebShopApi-ShopApi
 on:
   push:
     branches:
     - master
 env:
-  AZURE_WEBAPP_NAME: ShopApi1
+  AZURE_WEBAPP_NAME: WebShopApi
   AZURE_WEBAPP_PACKAGE_PATH: ShopApi/publish
   AZURE_APIM_RESOURCE_PATH: /
   AZURE_APIM_RESOURCEGROUP: ManagerResourceGroup
-  AZURE_APIM_SERVICENAME: ShopApi1
+  AZURE_APIM_SERVICENAME: WebShopApi
   AZURE_APIM_API_ID: ShopApi
-  AZURE_APIM_APPSERVICEURL: https://shopapi1.azurewebsites.net
+  AZURE_APIM_APPSERVICEURL: https://webshopapi.azurewebsites.net
   SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 5.6.3
   SWASHBUCKLE_DOTNET_CORE_VERSION: 3.1.x
   API_IMPORT_SPECIFICATION_PATH: ShopApi/publish/swagger.json
@@ -19,6 +19,8 @@ env:
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 5.0.x
   WORKING_DIRECTORY: ShopApi
+  ASPNETCORE_ENVIRONMENT : Azure
+  SQLAZURECONNSTR_ConnectionStrings: Server=tcp:${{ secrets.DBADDRESS }},1433;Initial Catalog=ShopApi_db;Persist Security Info=False;User ID=${{ secrets.DBLOGIN }};Password=${{ secrets.DBPASSWORD }};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,10 +34,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ env.SWASHBUCKLE_DOTNET_CORE_VERSION }}
+    - name: Install dotnet-ef
+      run: dotnet tool install --global dotnet-ef
     - name: Restore
       run: dotnet restore ${{ env.WORKING_DIRECTORY }}
     - name: Build
       run: dotnet build ${{ env.WORKING_DIRECTORY }} --configuration ${{ env.CONFIGURATION }} --no-restore
+    - name: Database Update
+      run: dotnet-ef database update --project ${{ env.WORKING_DIRECTORY }}
     - name: Test
       run: dotnet test ${{ env.WORKING_DIRECTORY }} --no-build
     - name: Publish
@@ -64,11 +70,11 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.SHOPAPI1_FFFF }}
+        publish-profile: ${{ secrets.WEBSHOPAPI_FFFF }}
     - name: Azure Login
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.ShopApi1_SPN }}
+        creds: ${{ secrets.WebShopApi_SPN }}
     - name: Import API into Azure API Management
       run: az apim api import --path "${{ env.AZURE_APIM_RESOURCE_PATH }}" --resource-group "${{ env.AZURE_APIM_RESOURCEGROUP }}" --service-name "${{ env.AZURE_APIM_SERVICENAME }}" --api-id "${{ env.AZURE_APIM_API_ID }}" --service-url "${{ env.AZURE_APIM_APPSERVICEURL }}" --specification-path "${{ env.API_IMPORT_SPECIFICATION_PATH }}" --specification-format OpenApi --subscription-required false
     - name: logout
